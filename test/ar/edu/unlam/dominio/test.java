@@ -99,6 +99,7 @@ public class test {
 		assertTrue(banda.buscarMusico(1));
 	}
 
+
 	@Test
 	public void verSiSeCreaUnFestival() {
 		Festival festival = new Festival("lolla", 3, 1);
@@ -142,4 +143,5 @@ public class test {
 	}
 
 	//cambio chiquito
+
 }
