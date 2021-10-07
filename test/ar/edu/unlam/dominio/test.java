@@ -99,7 +99,6 @@ public class test {
 		assertTrue(banda.buscarMusico(1));
 	}
 
-
 	@Test
 	public void verSiSeCreaUnFestival() {
 		Festival festival = new Festival("lolla", 3, 1);
@@ -142,6 +141,27 @@ public class test {
 
 	}
 
-	//cambio chiquito
+	@Test
+	public void agregarBandaConVariosMusicosPorComposicionYPolimorfismo() {
+		Productora productora = new Productora("Sony");
+		Musico musico = new Cantante(1, "carlos", "garcia", "charly garcia", true, true, true);
+		Musico musico2 = new Bajista(2, "pablo", "maitini", "shushu", false, false, true, UsoCuerdas.CON_PUA);
+		Musico musico3 = new Baterista(3, "nahuel", "apellido", "El edgy", true, true, true, 6);
+		Musico musico4 = new Guitarrista(4, "maria chiara", "espinoza", "avril lavigne", true, true, true,
+				TipoGuitarra.ELECTRICA, UsoCuerdas.CON_PUA);
+		Musico musico5= new Otro(5,"tomas","palen","el indie de mierda",true,true,"tecladista", true);
+
+		productora.agregarMusico(musico);
+		productora.agregarMusico(musico2);
+		productora.agregarMusico(musico3);
+		productora.agregarMusico(musico4);
+		productora.agregarMusico(musico5);
+		
+		assertTrue(productora.agregarBanda(1, 5, Genero.ROCK, 1, 2, 3, 4, 5));
+
+		
+	}
+
+	// cambio chiquito
 
 }
