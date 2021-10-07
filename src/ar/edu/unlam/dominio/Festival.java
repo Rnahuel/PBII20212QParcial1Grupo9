@@ -6,13 +6,14 @@ public class Festival {
 	private Banda listaDeBandas[];
 	private Espectador audiencia[];
 	private Integer diasDeDuracion;
+	private Integer cantidadToleradaDeEspectadores;
 	
 	
-	public Festival(String nombre, Integer diasDeDuracion) {
+	public Festival(String nombre, Integer diasDeDuracion, Integer cantidadToleradaDeEspectadores) {
 		
 		this.nombre = nombre;
 		this.listaDeBandas = new Banda[25];
-		this.audiencia = new Espectador[50000];
+		this.audiencia = new Espectador[cantidadToleradaDeEspectadores];
 		this.diasDeDuracion = diasDeDuracion;
 	}
 	
