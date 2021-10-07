@@ -265,8 +265,8 @@ public class Productora {
 		return seAgregoBanda;
 	}
 
-	public Boolean organizarFestival(Integer idBanda, String nombreFesti, Integer diasDeDuracion, Integer idFesti) {
-		Festival festi = new Festival(nombreFesti, diasDeDuracion, idFesti);
+	public Boolean organizarFestival(Integer idBanda, String nombreFesti, Integer diasDeDuracion, Integer idFesti, Integer cantidadToleradaDeEspectadores) {
+		Festival festi = new Festival(nombreFesti, diasDeDuracion, idFesti, cantidadToleradaDeEspectadores);
 		Banda banda = buscarBanda(idBanda);
 		Boolean bandaAgregadaAFesti = false;
 		Boolean festiGuardado = false;
