@@ -8,6 +8,7 @@ public class Festival {
 	private Integer diasDeDuracion;
 	private Integer idFesti;
 	private Integer cantidadToleradaDeEspectadores;
+	private Boolean festivalEmpezado;
 
 	public Festival(String nombre, Integer diasDeDuracion, Integer idFesti, Integer cantidadToleradaDeEspectadores) {
 		this.nombre = nombre;
@@ -15,6 +16,7 @@ public class Festival {
 		this.audiencia = new Espectador[cantidadToleradaDeEspectadores];
 		this.diasDeDuracion = diasDeDuracion;
 		this.idFesti=idFesti;
+		this.festivalEmpezado = false;
 	}
 
 	public String getNombre() {
@@ -58,8 +60,6 @@ public class Festival {
 		this.idFesti = idFesti;
 	}
 
-
-	
 	public Boolean agregarBanda(Banda banda) {
 		Boolean seAgregoBanda=false;
 		
@@ -107,6 +107,20 @@ public class Festival {
 			}
 		}
 		return seQuitoEspectador;
+	}
+	
+	public boolean empezarFestival() {
+		if(festivalEmpezado != true) {
+			festivalEmpezado = true;
+		}
+		return festivalEmpezado;
+	}
+	
+	public boolean finalizarFestival() {
+		if(festivalEmpezado != false) {
+			festivalEmpezado = false;
+		}
+		return festivalEmpezado;
 	}
 	
 
