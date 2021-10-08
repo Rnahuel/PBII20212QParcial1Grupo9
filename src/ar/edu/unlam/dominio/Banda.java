@@ -12,7 +12,7 @@ public class Banda {
 		this.id = id;
 		this.nroIntegrantes = nroIntegrantes;
 		this.genero = genero;
-		this.musicosIntegrantes = new Musico[nroIntegrantes];
+		this.musicosIntegrantes = new Musico[nroIntegrantes+1];
 	}
 
 	public Integer getId() {

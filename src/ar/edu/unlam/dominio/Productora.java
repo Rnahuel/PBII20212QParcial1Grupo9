@@ -7,6 +7,13 @@ public class Productora {
 	private Musico listaDeMusicosProductora[];
 	private Festival festivales[];
 	
+	public Productora(String nombre) {
+
+		this.nombre = nombre;
+		this.listaDeBandasProductora = new Banda[100];
+		this.listaDeMusicosProductora = new Musico[500];
+		this.festivales = new Festival[50];
+	}
 	
 	public String getNombre() {
 		return nombre;
@@ -16,17 +23,6 @@ public class Productora {
 		this.nombre = nombre;
 	}
 
-	
-
-	public Productora(String nombre) {
-
-		this.nombre = nombre;
-		this.listaDeBandasProductora = new Banda[100];
-		this.listaDeMusicosProductora = new Musico[500];
-		this.festivales = new Festival[50];
-	}
-
-	
 
 	public Boolean quitarBanda(Integer id) {
 		Boolean seQuito = false;
@@ -141,33 +137,7 @@ public class Productora {
 		return seAgregoBanda;
 	}
 
-	public Boolean organizarFestival(Integer idBanda, String nombreFesti, Integer diasDeDuracion, Integer idFesti, Integer cantidadToleradaDeEspectadores) {
-		Festival festi = new Festival(nombreFesti, diasDeDuracion, idFesti, cantidadToleradaDeEspectadores);
-		Banda banda = buscarBanda(idBanda);
-		Boolean bandaAgregadaAFesti = false;
-		Boolean festiGuardado = false;
-
-		for (int i = 0; i < festi.getListaDeBandas().length; i++) {
-			if (festi.getListaDeBandas()[i] == null) {
-				festi.getListaDeBandas()[i] = banda;
-				bandaAgregadaAFesti = true;
-				break;
-			}
-		}
-
-		if (bandaAgregadaAFesti) {
-			for (int i = 0; i < festivales.length; i++) {
-				if (festivales[i] == null) {
-					festivales[i] = festi;
-					festiGuardado = true;
-					break;
-
-				}
-			}
-
-		}
-		return festiGuardado;
-	}
+	
 
 	public Banda buscarBanda(Integer idBanda) {
 		Banda banda = null;
