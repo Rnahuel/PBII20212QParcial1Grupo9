@@ -59,8 +59,6 @@ public class Banda {
 
 	}
 	
-	
-
 	/*
 	 * public void setGenero(Genero genero) { this.genero = genero; }
 	 */

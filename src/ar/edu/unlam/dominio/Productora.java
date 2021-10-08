@@ -195,7 +195,6 @@ public class Productora {
 				musicoEncontrado = listaDeMusicosProductora[i];
 				break;
 			}
-
 		}
 		return musicoEncontrado;
 	}
