@@ -166,4 +166,49 @@ public class test {
 
 	//Test De Festival
 	
+	@Test
+	public void agregarBandaAFestival(){
+		Banda banda = new Banda(1, 1, Genero.ROCK);
+		Musico musico = new Baterista(2, "pablo", "maitini", "shushu", false, false, true, 5);
+		Festival festival = new Festival("lolla", 3, 1, 60);
+		
+		banda.agregarMusico(musico);
+		
+		assertTrue(festival.agregarBanda(banda));
+		
+	}
+	
+	@Test
+	public void quitarBandaAFestival(){
+		Banda banda = new Banda(1, 1, Genero.ROCK);
+		Musico musico = new Baterista(2, "pablo", "maitini", "shushu", false, false, true, 5);
+		Festival festival = new Festival("lolla", 3, 1, 60);
+		
+		banda.agregarMusico(musico);
+		festival.agregarBanda(banda);
+		
+		assertTrue(festival.quitarBanda(banda.getId()));
+		
+	}
+	
+	@Test
+	public void agregarEspectadores() {
+		Espectador espectador= new Espectador ("pablito", "pollo", 123);
+		Festival festival = new Festival("lolla", 3, 1, 60);
+		
+		assertTrue(festival.agregarEspectador(espectador));
+	}
+	
+	@Test
+	public void quitarEspectadores() {
+		Espectador espectador= new Espectador ("pablito", "pollo", 123);
+		Festival festival = new Festival("lolla", 3, 1, 60);
+		
+		festival.agregarEspectador(espectador);
+		
+		assertTrue(festival.quitarEspectador(espectador.getDni()));
+	}
+	
+	
+	
 }
