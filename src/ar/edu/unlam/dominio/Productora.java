@@ -6,7 +6,7 @@ public class Productora {
 	private Banda listaDeBandasProductora[];
 	private Musico listaDeMusicosProductora[];
 	private Festival festivales[];
-	
+
 	public Productora(String nombre) {
 
 		this.nombre = nombre;
@@ -14,7 +14,7 @@ public class Productora {
 		this.listaDeMusicosProductora = new Musico[500];
 		this.festivales = new Festival[50];
 	}
-	
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -116,14 +116,11 @@ public class Productora {
 				listaDeBandasProductora[i] = banda;
 				seAgregoBanda = true;
 				break;
-
 			}
 
 		}
 		return seAgregoBanda;
 	}
-
-	
 
 	public Banda buscarBanda(Integer idBanda) {
 		Banda banda = null;
@@ -135,36 +132,21 @@ public class Productora {
 
 		}
 		return banda;
-
 	}
 
-	public Boolean agregarMusico(Integer idMusico, String nombre, String apellido, String nombreArtistico,
-			Boolean formacionAcademica, Boolean manejaMasDeUnInstrumento) {
-		Musico musico = new Musico(idMusico, nombre, apellido, nombreArtistico, formacionAcademica,
-				manejaMasDeUnInstrumento);
-
-		Boolean seAgregó = false;
-		for (int i = 0; i < listaDeMusicosProductora.length; i++) {
-			if (listaDeMusicosProductora[i] == null) {
-				listaDeMusicosProductora[i] = musico;
-				seAgregó = true;
-				break;
-			}
-		}
-		return seAgregó;
-
-	}
-
-	public Boolean quitarMusicoDeUnaBanda (Integer idBanda, Integer idMusico) {
-		Banda banda = buscarBanda(idBanda);
-		Boolean seQuito = banda.quitarMusico(idMusico);
-		return seQuito;
-	}
-	
-	public Boolean agregarMusicoAUnaBanda (Integer idBanda, Integer idMusico) {
+	public Boolean agregarMusicoAUnaBanda(Integer idBanda, Integer idMusico) {
 		Boolean seAgrego = false;
 		Banda banda = buscarBanda(idBanda);
-		seAgrego = banda.quitarMusico(idMusico);
+		Musico musico = banda.buscarMusico(idMusico);
+		seAgrego = banda.agregarMusico(musico);
 		return seAgrego;
+	}
+	
+	public Boolean quitarMusicoDeUnaBanda(Integer idBanda, Integer idMusico) {
+		Boolean seQuito = false;
+		Banda banda = buscarBanda(idBanda);
+		Musico musicoAsacar = banda.buscarMusico(idMusico);
+		seQuito = banda.quitarMusico(musicoAsacar.getId());
+		return seQuito;
 	}
 }

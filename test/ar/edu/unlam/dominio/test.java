@@ -28,16 +28,16 @@ public class test {
 	@Test
 	public void verSiSeAgregaUnMusico() {
 		Productora productora = new Productora("Sony");
-		Musico musico = new Musico(1, "carlos", "garcia", "charly garcia", true, true);
+		Musico musico = new Cantante(1, "carlos", "garcia", "charly garcia", true, true, true);
 
-		assertTrue(productora.agregarMusico(1, "carlos", "garcia", "charly garcia", true, true));
+		assertTrue(productora.agregarMusico(musico));
 
 	}
 	
 	@Test
 	public void verSiSeBuscaUnMusicoCorrectamente() {
 		Productora productora = new Productora("Sony");
-		Musico musico = new Musico(1, "carlos", "garcia", "charly garcia", true, true);
+		Musico musico = new Cantante(1, "carlos", "garcia", "charly garcia", true, true, true);
 		productora.agregarMusico(musico);
 
 		assertEquals(musico, productora.buscarMusico(1));
@@ -47,7 +47,7 @@ public class test {
 	@Test
 	public void verSiSeQuitaUnMusico() {
 		Productora productora = new Productora("Sony");
-		Musico musico = new Musico(1, "carlos", "garcia", "charly garcia", true, true);
+		Musico musico = new Cantante(1, "carlos", "garcia", "charly garcia", true, true, true);
 		productora.agregarMusico(musico);
 
 		assertEquals(musico, productora.buscarMusico(1));
@@ -63,11 +63,76 @@ public class test {
 		assertTrue(productora.agregarFestival(festival));
 	}
 	
+	@Test
+	public void verSiSeQuitaUnFestival() {
+
+		Festival festival = new Festival("lolla", 3, 1, 60);
+		Productora productora = new Productora("Sony");
+
+		productora.agregarFestival(festival);
+		
+		assertTrue(productora.quitarFestival(1));
+		assertFalse(productora.buscarFestival(1));
+
+	}
+	
+	@Test
+	public void buscarUnFestival() {
+
+		Festival festival = new Festival("lolla", 3, 1, 60);
+		Productora productora = new Productora("Sony");
+
+		productora.agregarFestival(festival);
+		
+		assertTrue(productora.buscarFestival(1));
+	}
+	
+	@Test
+	public void verSiSeAgregaUnaBandaEnProductora() {
+		Productora productora = new Productora("Sony");
+		Banda charly = new Banda (22, 1, Genero.ROCK);
+		
+		assertTrue(productora.agregarBanda(charly));
+	}
+	
+	@Test
+	public void verSiBuscaUnaBandaCorrectamente() {
+		Productora productora = new Productora("Sony");
+		Banda banda = new Banda(1, 1, Genero.ROCK);
+		
+		productora.agregarBanda(banda);
+
+		assertEquals(banda, productora.buscarBanda(1));
+
+	}
+	
+	@Test
+	public void verSiSeAgreganMusicosAUnaBanda() {
+		Productora productora = new Productora("Sony");
+		Banda banda = new Banda(1, 1, Genero.ROCK);
+		Musico musico = new Cantante(1, "carlos", "garcia", "charly garcia", true, true, true);
+
+		productora.agregarBanda(banda);
+		assertTrue(productora.agregarMusicoAUnaBanda(1, 1));
+	}
+	
+	@Test
+	public void verSiQuitamosMusicosAUnaBanda() {
+		Productora productora = new Productora("Sony");
+		Banda banda = new Banda(1, 1, Genero.ROCK);
+		Musico musico = new Cantante(1, "carlos", "garcia", "charly garcia", true, true, true);
+		
+		banda.agregarMusico(musico);
+		productora.agregarBanda(banda);
+		productora.agregarMusicoAUnaBanda(1, 1);
+		assertTrue(productora.quitarMusicoDeUnaBanda(1, 1));
+	}
+	
 	//Test Musicos
 	@Test
 	public void verSiSeCreaUnMusico() {
 
-		Musico musico = new Musico(1, "carlos", "garcia", "charly garcia", true, true);
+		Musico musico = new Cantante(1, "carlos", "garcia", "charly garcia", true, true, true);
 
 		assertEquals(musico, musico);
 
@@ -80,91 +145,6 @@ public class test {
 		assertEquals(banda, banda);
 	}
 
-	@Test
-	public void verSiSeAgregaUnaBanda() {
-		Productora productora = new Productora("Sony");
-		Musico musico = new Musico(1, "carlos", "garcia", "charly garcia", true, true);
-		
-		Banda charly = new Banda (22, 1, Genero.ROCK);
-		
-
-		assertTrue(productora.agregarBanda(charly));
-
-	}
-
-	@Test
-	public void verSiDevuelveUnaBanda() {
-		Productora productora = new Productora("Sony");
-		Musico musico = new Musico(1, "carlos", "garcia", "charly garcia", true, true);
-		Banda banda = new Banda(1, 1, Genero.ROCK);
-		productora.agregarMusico(musico);
-
-		productora.agregarBanda(banda);
-
-		assertEquals(productora.buscarBanda(1), banda);
-
-	}
-
-	@Test
-	public void verSiSeAgreganMusicosAUnaBanda() {
-		Banda banda = new Banda(1, 1, Genero.ROCK);
-		Musico musico = new Musico(1, "carlos", "garcia", "charly garcia", true, true);
-
-		assertFalse(banda.buscarMusico(1));
-
-		assertTrue(banda.agregarMusico(musico));
-
-		assertTrue(banda.buscarMusico(1));
-	}
-	
-	@Test
-	public void verSiSeQuitaUnFestival() {
-
-		Festival festival = new Festival("lolla", 3, 1, 60);
-
-		Productora productora = new Productora("Sony");
-
-		productora.agregarFestival(festival);
-		assertTrue(productora.buscarFestival(1));
-		assertTrue(productora.quitarFestival(1));
-		assertFalse(productora.buscarFestival(1));
-
-	}
-
-	@Test
-	public void verSiSeOrganizaUnFestival() {
-		Productora productora = new Productora("Sony");
-		Banda banda = new Banda(1, 1, Genero.ROCK);
-		Musico musico = new Musico(1, "carlos", "garcia", "charly garcia", true, true);
-
-		productora.agregarMusico(musico);
-		productora.agregarBanda(banda);
-
-
-		assertTrue(productora.organizarFestival(1, "lolla", 3, 1, 100));
-
-
-	}
-
-	@Test
-	public void queSeQuiteMusicoCorrectamente() {
-		Productora productora = new Productora("Sony");
-		Musico musico = new Cantante(1, "carlos", "garcia", "charly garcia", true, true, true);
-		Musico musico2 = new Bajista(2, "pablo", "maitini", "shushu", false, false, true, UsoCuerdas.CON_PUA);
-		Musico musico3 = new Baterista(3, "nahuel", "apellido", "El edgy", true, true, true, 6);
-		Musico musico4 = new Guitarrista(4, "maria chiara", "espinoza", "avril lavigne", true, true, true,
-				TipoGuitarra.ELECTRICA, UsoCuerdas.CON_PUA);
-		Banda laNuevaLuna = new Banda (420, 4, Genero.CUMBIA);
-		
-		laNuevaLuna.agregarMusico(musico);
-		laNuevaLuna.agregarMusico(musico2);
-		laNuevaLuna.agregarMusico(musico3);
-		laNuevaLuna.agregarMusico(musico4);
-		
-		productora.agregarBanda(laNuevaLuna);
-		
-		assertTrue(productora.quitarMusicoDeUnaBanda(420, 3));
-	}
 	
 	@Test
 	public void queSeAgregueMusicoEnLaProductora() {
@@ -172,6 +152,16 @@ public class test {
 		Musico musico = new Baterista(2, "pablo", "maitini", "shushu", false, false, true, 5);
 		
 		assertTrue(productora.agregarMusico(musico));
+	}
+	
+	//Test De Banda
+	@Test 
+	public void quitarMusicoEnBanda() {
+		Banda banda = new Banda(1, 1, Genero.ROCK);
+		Musico musico = new Baterista(2, "pablo", "maitini", "shushu", false, false, true, 5);
+		
+		banda.agregarMusico(musico);
+		assertTrue(banda.quitarMusico(2));
 	}
 
 }
