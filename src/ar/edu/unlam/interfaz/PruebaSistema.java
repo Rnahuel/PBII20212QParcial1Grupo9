@@ -50,7 +50,7 @@ public class PruebaSistema {
 			System.out.println("1 - para MENÚ AGREGAR: ");
 			System.out.println("2 - para MENÚ QUITAR: ");
 			System.out.println("3 - para MENÚ MODIFICAR BANDA: ");
-			System.out.println("4 - para MENÚ MODIFICAR FESTIVAL: ");
+
 
 			System.out.println("0 - para SALIR");
 
@@ -445,7 +445,33 @@ public class PruebaSistema {
 					System.out.println("Ingrese cantidad máxima de espectadores: ");
 					Integer cantidadMax = teclado.nextInt();
 					Festival festival = new Festival(nombre, diasDeDuracion, id, cantidadMax);
+					seAgrego = produ.agregarFestival(festival);
+					if(seAgrego) {
+						System.out.println("Festival agregado correctamente");
+					} else System.out.println("Error al agregar festival. Intente nuevamente.");
 					
+					do {
+						System.out.println("Ingrese 1 para INICIAR FESTIVAL");
+						System.out.println("Ingrese 2 para FINALIZAR FESTIVAL");
+						op = teclado.nextInt();
+						} while (op != 1 && op != 2);
+						if (op == 1) {
+							festival.empezarFestival();
+						} else festival.finalizarFestival();
+						
+					do {
+						System.out.println("Seleccione opción");
+						System.out.println("1 - para agregar banda existente a Festival ");
+						System.out.println("2 - para quitar banda existente de Festival ");
+						op = teclado.nextInt();
+						}while (op != 1 && op != 2);
+						if(op == 1) {
+							System.out.println("Ingrese ID Festival a modificar: ");
+							id = teclado.nextInt();
+							System.out.println("Ingrese ID de Banda a agregar: ");
+							Integer idBanda = teclado.nextInt();
+							
+						}
 					
 					break;
 				default:
@@ -503,20 +529,7 @@ public class PruebaSistema {
 				}
 				break;
 			case 4:
-				//agregar banda a festival
-				do {
-				System.out.println("Seleccione opción");
-				System.out.println("1 - para agregar banda a Festival existente");
-				System.out.println("2 - para quitar banda de Festival existente");
-				op = teclado.nextInt();
-				}while (op != 1 && op != 2);
-				if(op == 1) {
-					System.out.println("Ingrese ID Festival a modificar: ");
-					Integer id = teclado.nextInt();
-					System.out.println("Ingrese ID de Banda a agregar: ");
-					idBanda = teclado.nextInt();
-					
-				}
+				
 				break;
 			default:
 				break;
