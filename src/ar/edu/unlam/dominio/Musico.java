@@ -1,6 +1,6 @@
 package ar.edu.unlam.dominio;
 
-public class Musico {
+public abstract class Musico {
 	
 	private Integer id;
 	private String nombre;
