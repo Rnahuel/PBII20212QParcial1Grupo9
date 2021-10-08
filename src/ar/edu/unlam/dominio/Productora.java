@@ -47,19 +47,7 @@ public class Productora {
 		return seAgregó;
 	}
 
-	public Boolean buscarMusico(Integer id) {
-		Boolean musicoEncontrado = false;
-		for (int i = 0; i < listaDeMusicosProductora.length; i++) {
-			if (listaDeMusicosProductora[i] != null && listaDeMusicosProductora[i].getId().equals(id)) {
-				musicoEncontrado = true;
-				break;
-			}
-
-		}
-		return musicoEncontrado;
-	}
-
-	public Musico devolverMusico(Integer id) {
+	public Musico buscarMusico(Integer id) {
 		Musico musicoEncontrado = null;
 		for (int i = 0; i < listaDeMusicosProductora.length; i++) {
 			if (listaDeMusicosProductora[i] != null && listaDeMusicosProductora[i].getId().equals(id)) {
