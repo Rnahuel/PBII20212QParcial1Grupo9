@@ -7,6 +7,13 @@ public class Productora {
 	private Musico listaDeMusicosProductora[];
 	private Festival festivales[];
 	
+	public Productora(String nombre) {
+
+		this.nombre = nombre;
+		this.listaDeBandasProductora = new Banda[100];
+		this.listaDeMusicosProductora = new Musico[500];
+		this.festivales = new Festival[50];
+	}
 	
 	public String getNombre() {
 		return nombre;
@@ -15,18 +22,6 @@ public class Productora {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-	
-
-	public Productora(String nombre) {
-
-		this.nombre = nombre;
-		this.listaDeBandasProductora = new Banda[100];
-		this.listaDeMusicosProductora = new Musico[500];
-		this.festivales = new Festival[50];
-	}
-
-	
 
 	public Boolean quitarBanda(Integer id) {
 		Boolean seQuito = false;

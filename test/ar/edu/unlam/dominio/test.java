@@ -149,7 +149,6 @@ public class test {
 
 	}
 
-
 	@Test
 	public void queSeQuiteMusicoCorrectamente() {
 		Productora productora = new Productora("Sony");
@@ -168,7 +167,16 @@ public class test {
 		productora.agregarBanda(laNuevaLuna);
 		
 		assertTrue(productora.quitarMusicoDeUnaBanda(420, 3));
+	}
+	
+	@Test
+	public void queSeQuiteUnaBandaCorrectamente() {
+		Productora productora = new Productora("Sony");
+		Banda laNuevaLuna = new Banda (420, 4, Genero.CUMBIA);
 		
+		productora.agregarBanda(laNuevaLuna);
+		
+		assertTrue(productora.quitarBanda(420));
 	}
 
 }
