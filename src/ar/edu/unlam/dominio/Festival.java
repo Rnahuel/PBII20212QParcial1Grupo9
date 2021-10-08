@@ -1,5 +1,7 @@
 package ar.edu.unlam.dominio;
 
+import java.util.Arrays;
+
 public class Festival {
 
 	private String nombre;
@@ -122,6 +124,14 @@ public class Festival {
 		}
 		return festivalEmpezado;
 	}
-	
 
+	@Override
+	public String toString() {
+		return "Festival [nombre=" + nombre + ", listaDeBandas=" + Arrays.toString(listaDeBandas) + ", audiencia="
+				+ Arrays.toString(audiencia) + ", diasDeDuracion=" + diasDeDuracion + ", idFesti=" + idFesti
+				+ ", cantidadToleradaDeEspectadores=" + cantidadToleradaDeEspectadores + ", festivalEmpezado="
+				+ festivalEmpezado + "]";
+	}
+	
+	
 }

@@ -67,6 +67,13 @@ public class Musico {
 	public void setManejaMasDeUnInstrumento(Boolean manejaMasDeUnInstrumento) {
 		this.manejaMasDeUnInstrumento = manejaMasDeUnInstrumento;
 	}
+
+	@Override
+	public String toString() {
+		return "Musico [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", nombreArtistico="
+				+ nombreArtistico + ", tieneFormacionAcademica=" + tieneFormacionAcademica
+				+ ", manejaMasDeUnInstrumento=" + manejaMasDeUnInstrumento + "]";
+	}
 	
 	
 }

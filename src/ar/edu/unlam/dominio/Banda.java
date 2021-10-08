@@ -1,5 +1,7 @@
 package ar.edu.unlam.dominio;
 
+import java.util.Arrays;
+
 public class Banda {
 
 	private Integer id;
@@ -71,8 +73,14 @@ public class Banda {
 		
 	}
 
-	/*
-	 * public void setGenero(Genero genero) { this.genero = genero; }
-	 */
+	
+	  public void setGenero(Genero genero) { this.genero = genero; }
 
+	@Override
+	public String toString() {
+		return "Banda [id=" + id + ", nroIntegrantes=" + nroIntegrantes + ", genero=" + genero + ", musicosIntegrantes="
+				+ Arrays.toString(musicosIntegrantes) + "]";
+	}
+
+	  
 }

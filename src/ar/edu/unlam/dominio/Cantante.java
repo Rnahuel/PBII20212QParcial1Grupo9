@@ -22,4 +22,5 @@ public class Cantante extends Musico {
 		this.esCompositor = esCompositor;
 	}
 
+	
 }

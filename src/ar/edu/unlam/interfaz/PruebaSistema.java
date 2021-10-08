@@ -32,7 +32,7 @@ public class PruebaSistema {
 			case 1:
 				System.out.println( AGREGAR_MUSICO + " - para agregar MÚSICO a la productora");
 				System.out.println( AGREGAR_BANDA + " - para agregar BANDA a la productora");
-				System.out.println( AGREGAR_FESTIVAL + " - para agregar FESTIVAL a realizar");
+				System.out.println( AGREGAR_FESTIVAL + " - para crear FESTIVAL a realizar");
 				break;
 			
 			case 2:
