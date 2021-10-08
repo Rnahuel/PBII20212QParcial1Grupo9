@@ -5,11 +5,12 @@ public class Cantante extends Musico{
 
 	private boolean esCompositor;
 
+	
 	public Cantante(Integer id, String nombre, String apellido, String nombreArtistico, Boolean tieneFormacionAcademica,
-			Boolean manejaMasDeUnInstrumento) {
+			Boolean manejaMasDeUnInstrumento, Boolean compone) {
 		
 		super(id, nombre, apellido, nombreArtistico, tieneFormacionAcademica, manejaMasDeUnInstrumento);
-		this.esCompositor = esCompositor;
+		this.esCompositor = compone;
 	}
 	
 	
