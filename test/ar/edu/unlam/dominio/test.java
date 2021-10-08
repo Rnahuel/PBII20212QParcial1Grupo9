@@ -209,6 +209,6 @@ public class test {
 		assertTrue(festival.quitarEspectador(espectador.getDni()));
 	}
 	
-	//lpm
+
 	
 }
