@@ -101,14 +101,14 @@ public class test {
 
 	@Test
 	public void verSiSeCreaUnFestival() {
-		Festival festival = new Festival("lolla", 3, 1);
+		Festival festival = new Festival("lolla", 3, 1, 100);
 
 		assertEquals(festival, festival);
 	}
 
 	@Test
 	public void verSiSeGuardaUnFestival() {
-		Festival festival = new Festival("lolla", 3, 1);
+		Festival festival = new Festival("lolla", 3, 1, 50);
 		Productora productora = new Productora("Sony");
 
 		assertTrue(productora.agregarFestival(festival));
@@ -118,7 +118,7 @@ public class test {
 
 	@Test
 	public void verSiSeQuitaUnFestival() {
-		Festival festival = new Festival("lolla", 3, 1);
+		Festival festival = new Festival("lolla", 3, 1, 60);
 		Productora productora = new Productora("Sony");
 
 		productora.agregarFestival(festival);
@@ -137,7 +137,7 @@ public class test {
 		productora.agregarMusico(musico);
 		productora.agregarBanda(banda);
 
-		assertTrue(productora.organizarFestival(1, "lolla", 3, 1));
+		assertTrue(productora.organizarFestival(1, "lolla", 3, 1, 100));
 
 	}
 
@@ -162,6 +162,6 @@ public class test {
 		
 	}
 
-	// cambio chiquito
+
 
 }
