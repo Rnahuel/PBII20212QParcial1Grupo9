@@ -323,4 +323,16 @@ public class Productora {
 
 	}
 
+	public Boolean quitarMusicoDeUnaBanda (Integer idBanda, Integer idMusico) {
+		Banda banda = buscarBanda(idBanda);
+		Boolean seQuito = banda.quitarMusico(idMusico);
+		return seQuito;
+	}
+	
+	public Boolean agregarMusicoAUnaBanda (Integer idBanda, Integer idMusico) {
+		Boolean seAgrego = false;
+		Banda banda = buscarBanda(idBanda);
+		seAgrego = banda.quitarMusico(idMusico);
+		return seAgrego;
+	}
 }

@@ -59,7 +59,17 @@ public class Banda {
 
 	}
 	
-	
+	public Boolean quitarMusico (Integer idMusico) {
+		Boolean seQuito = false;
+		for (int i = 0; i < musicosIntegrantes.length; i++) {
+			if(musicosIntegrantes[i] != null && musicosIntegrantes[i].getId().equals(idMusico)) {
+				musicosIntegrantes[i] = null;
+				seQuito = true;
+				break;
+			}
+		} return seQuito;
+		
+	}
 
 	/*
 	 * public void setGenero(Genero genero) { this.genero = genero; }
