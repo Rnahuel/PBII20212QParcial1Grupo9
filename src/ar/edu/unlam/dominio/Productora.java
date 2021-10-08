@@ -3,7 +3,11 @@ package ar.edu.unlam.dominio;
 public class Productora {
 
 	private String nombre;
-
+	private Banda listaDeBandasProductora[];
+	private Musico listaDeMusicosProductora[];
+	private Festival festivales[];
+	
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -12,9 +16,7 @@ public class Productora {
 		this.nombre = nombre;
 	}
 
-	private Banda listaDeBandasProductora[];
-	private Musico listaDeMusicosProductora[];
-	private Festival festivales[];
+	
 
 	public Productora(String nombre) {
 
@@ -24,133 +26,7 @@ public class Productora {
 		this.festivales = new Festival[50];
 	}
 
-	public Boolean agregarBanda(Integer idBanda, Integer nroIntegrantes, Genero gen, Integer idMusico) {
-		Boolean seAgregoBanda = false;
-		Musico musi = devolverMusico(idMusico);
-		Banda banda = new Banda(idBanda, nroIntegrantes, gen);
-
-		Boolean seAgregoMusico = banda.agregarMusico(musi);
-
-		if (seAgregoMusico) {
-			for (int i = 0; i < listaDeBandasProductora.length; i++) {
-				if (listaDeBandasProductora[i] == null) {
-					listaDeBandasProductora[i] = banda;
-					seAgregoBanda = true;
-					break;
-				}
-			}
-
-		}
-		return seAgregoBanda;
-	}
-
-	public Boolean agregarBanda(Integer idBanda, Integer nroIntegrantes, Genero gen, Integer idMusico,
-			Integer idMusico2) {
-
-		Boolean seAgregoBanda = false;
-		Musico musi = devolverMusico(idMusico);
-		Musico musi2 = devolverMusico(idMusico2);
-		Banda banda = new Banda(idBanda, nroIntegrantes, gen);
-
-		Boolean seAgregoMusico = banda.agregarMusico(musi);
-		Boolean seAgregoMusico2 = banda.agregarMusico(musi2);
-
-		if (seAgregoMusico && seAgregoMusico2) {
-			for (int i = 0; i < listaDeBandasProductora.length; i++) {
-				if (listaDeBandasProductora[i] == null) {
-					listaDeBandasProductora[i] = banda;
-					seAgregoBanda = true;
-					break;
-				}
-			}
-
-		}
-		return seAgregoBanda;
-	}
-
-	public Boolean agregarBanda(Integer idBanda, Integer nroIntegrantes, Genero gen, Integer idMusico,
-			Integer idMusico2, Integer idMusico3) {
-
-		Boolean seAgregoBanda = false;
-		Musico musi = devolverMusico(idMusico);
-		Musico musi2 = devolverMusico(idMusico2);
-		Musico musi3 = devolverMusico(idMusico3);
-		Banda banda = new Banda(idBanda, nroIntegrantes, gen);
-
-		Boolean seAgregoMusico = banda.agregarMusico(musi);
-		Boolean seAgregoMusico2 = banda.agregarMusico(musi2);
-		Boolean seAgregoMusico3 = banda.agregarMusico(musi3);
-
-		if (seAgregoMusico && seAgregoMusico2 && seAgregoMusico3) {
-			for (int i = 0; i < listaDeBandasProductora.length; i++) {
-				if (listaDeBandasProductora[i] == null) {
-					listaDeBandasProductora[i] = banda;
-					seAgregoBanda = true;
-					break;
-				}
-			}
-
-		}
-		return seAgregoBanda;
-	}
-
-	public Boolean agregarBanda(Integer idBanda, Integer nroIntegrantes, Genero gen, Integer idMusico,
-			Integer idMusico2, Integer idMusico3, Integer idMusico4) {
-
-		Boolean seAgregoBanda = false;
-		Musico musi = devolverMusico(idMusico);
-		Musico musi2 = devolverMusico(idMusico2);
-		Musico musi3 = devolverMusico(idMusico3);
-		Musico musi4 = devolverMusico(idMusico4);
-		Banda banda = new Banda(idBanda, nroIntegrantes, gen);
-
-		Boolean seAgregoMusico = banda.agregarMusico(musi);
-		Boolean seAgregoMusico2 = banda.agregarMusico(musi2);
-		Boolean seAgregoMusico3 = banda.agregarMusico(musi3);
-		Boolean seAgregoMusico4 = banda.agregarMusico(musi4);
-
-		if (seAgregoMusico && seAgregoMusico2 && seAgregoMusico3 && seAgregoMusico4) {
-			for (int i = 0; i < listaDeBandasProductora.length; i++) {
-				if (listaDeBandasProductora[i] == null) {
-					listaDeBandasProductora[i] = banda;
-					seAgregoBanda = true;
-					break;
-				}
-			}
-
-		}
-		return seAgregoBanda;
-	}
-
-	public Boolean agregarBanda(Integer idBanda, Integer nroIntegrantes, Genero gen, Integer idMusico,
-			Integer idMusico2, Integer idMusico3, Integer idMusico4, Integer idMusico5) {
-
-		Boolean seAgregoBanda = false;
-		Musico musi = devolverMusico(idMusico);
-		Musico musi2 = devolverMusico(idMusico2);
-		Musico musi3 = devolverMusico(idMusico3);
-		Musico musi4 = devolverMusico(idMusico4);
-		Musico musi5 = devolverMusico(idMusico5);
-		Banda banda = new Banda(idBanda, nroIntegrantes, gen);
-
-		Boolean seAgregoMusico = banda.agregarMusico(musi);
-		Boolean seAgregoMusico2 = banda.agregarMusico(musi2);
-		Boolean seAgregoMusico3 = banda.agregarMusico(musi3);
-		Boolean seAgregoMusico4 = banda.agregarMusico(musi4);
-		Boolean seAgregoMusico5 = banda.agregarMusico(musi5);
-
-		if (seAgregoMusico && seAgregoMusico2 && seAgregoMusico3 && seAgregoMusico4 && seAgregoMusico5) {
-			for (int i = 0; i < listaDeBandasProductora.length; i++) {
-				if (listaDeBandasProductora[i] == null) {
-					listaDeBandasProductora[i] = banda;
-					seAgregoBanda = true;
-					break;
-				}
-			}
-
-		}
-		return seAgregoBanda;
-	}
+	
 
 	public Boolean quitarBanda(Integer id) {
 		Boolean seQuito = false;
