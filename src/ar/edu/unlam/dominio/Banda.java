@@ -37,11 +37,11 @@ public class Banda {
 		return genero;
 	}
 
-	public Boolean buscarMusico(Integer id) {
-		Boolean musico = false;
+	public Musico buscarMusico(Integer id) {
+		Musico musico = null;
 		for (int i = 0; i < musicosIntegrantes.length; i++) {
 			if (musicosIntegrantes[i] != null && musicosIntegrantes[i].getId().equals(id)) {
-				musico = true;
+				musico = musicosIntegrantes[i];
 				break;
 			}
 		}
