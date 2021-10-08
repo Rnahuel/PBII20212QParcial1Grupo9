@@ -50,6 +50,7 @@ public class PruebaSistema {
 			System.out.println("1 - para MENÚ AGREGAR: ");
 			System.out.println("2 - para MENÚ QUITAR: ");
 			System.out.println("3 - para MENÚ MODIFICAR BANDA: ");
+			System.out.println("4 - para MENÚ MODIFICAR FESTIVAL: ");
 
 			System.out.println("0 - para SALIR");
 
@@ -453,17 +454,75 @@ public class PruebaSistema {
 				break;
 
 			case 2:
+				do {
 				System.out.println(QUITAR_MUSICO + " - para quitar MÚSICO de la productora");
 				System.out.println(QUITAR_BANDA + " - para quitar BANDA de la productora");
+				op = teclado.nextInt();
+				} while (op != 1 && op != 2);
+				switch(op) {
+				case QUITAR_MUSICO:
+					System.out.println("Ingrese id del músico a sacar: ");
+					Integer id = teclado.nextInt();
+					Boolean seQuito = produ.quitarMusico(id);
+					if(seQuito) {
+						System.out.println("Músico quitado correctamente de la productora.");	
+					} else System.out.println("Error al quitar músico de la productora. Intente nuevamente.");
+				break;
+				case QUITAR_BANDA:
+					System.out.println("Ingrese id de la banda a sacar");
+					id = teclado.nextInt();
+					seQuito = produ.quitarBanda(id);
+					if(seQuito) {
+						System.out.println("Banda quitada correctamente de la productora.");	
+					} else System.out.println("Error al quitar banda de la productora. Intente nuevamente.");
+					break;
+				default:
+					break;
+				}
 				break;
 
 			case 3:
+				Integer idBanda = null;
+				Integer idMusico = null;
+				do {
 				System.out.println(AGREGAR_MUSICO_BANDA_EXISTENTE + " - para agregar MÚSICO a banda existente");
 				System.out.println(QUITAR_MUSICO_BANDA_EXISTENTE + " - para quitar MÚSICO de banda existente");
+				op = teclado.nextInt();
+				} while (op != 1 && op != 2);
+				if(op == AGREGAR_MUSICO_BANDA_EXISTENTE) {
+					System.out.println("Ingrese ID de banda: ");
+					idBanda = teclado.nextInt();
+					System.out.println("Ingrese ID de músico a agregar (ya debe estar cargado en la lista de musicos)");
+					idMusico = teclado.nextInt();
+					seAgrego = produ.agregarMusicoAUnaBanda(idBanda, idMusico);
+					if(seAgrego) {
+						System.out.println("Se agregó músico a la banda.");
+					} else System.out.println("Error en alguno de los datos. Chequee los ID.");
+				}else {
+					produ.quitarMusicoDeUnaBanda(idBanda, idMusico);
+				}
+				break;
+			case 4:
+				//agregar banda a festival
+				do {
+				System.out.println("Seleccione opción");
+				System.out.println("1 - para agregar banda a Festival existente");
+				System.out.println("2 - para quitar banda de Festival existente");
+				op = teclado.nextInt();
+				}while (op != 1 && op != 2);
+				if(op == 1) {
+					System.out.println("Ingrese ID Festival a modificar: ");
+					Integer id = teclado.nextInt();
+					System.out.println("Ingrese ID de Banda a agregar: ");
+					idBanda = teclado.nextInt();
+					
+				}
+				break;
 			default:
 				break;
-			}
-
+			
+		}
+		
 		} while (opcion != 0);
 
 	}
