@@ -183,6 +183,18 @@ public class test {
 		assertTrue(festival.quitarEspectador(espectador.getDni()));
 	}
 	
+	@Test
+	public void empezarFestival() {
+		Festival festival = new Festival("lolla", 3, 1, 60);
+		
+		assertTrue(festival.empezarFestival());
+	}
 
+	@Test
+	public void finalizarFestival() {
+		Festival festival = new Festival("lolla", 3, 1, 60);
+		
+		assertFalse(festival.finalizarFestival());
+	}
 	
 }
