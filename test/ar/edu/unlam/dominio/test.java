@@ -129,8 +129,26 @@ public class test {
 	}
 	
 	//Tests De Banda
+	
 	@Test 
-	public void quitarMusicoEnBanda() {
+	public void buscarMusicoEnClaseBanda() {
+		Banda banda = new Banda(1, 1, Genero.ROCK);
+		Musico musico = new Baterista(2, "pablo", "maitini", "shushu", false, false, true, 5);
+		
+		banda.agregarMusico(musico);
+		assertEquals(musico, banda.buscarMusico(2));
+	}
+	
+	@Test 
+	public void agregarMusicoEnClaseBanda() {
+		Banda banda = new Banda(1, 1, Genero.ROCK);
+		Musico musico = new Baterista(2, "pablo", "maitini", "shushu", false, false, true, 5);
+		
+		assertTrue(banda.agregarMusico(musico));
+	}
+	
+	@Test 
+	public void quitarMusicoEnClaseBanda() {
 		Banda banda = new Banda(1, 1, Genero.ROCK);
 		Musico musico = new Baterista(2, "pablo", "maitini", "shushu", false, false, true, 5);
 		
@@ -138,7 +156,7 @@ public class test {
 		assertTrue(banda.quitarMusico(2));
 	}
 
-	//Test De Festival
+	//Tests De Festival
 	
 	@Test
 	public void agregarBandaAFestival(){

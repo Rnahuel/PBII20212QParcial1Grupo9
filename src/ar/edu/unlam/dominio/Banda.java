@@ -14,7 +14,7 @@ public class Banda {
 		this.id = id;
 		this.nroIntegrantes = nroIntegrantes;
 		this.genero = genero;
-		this.musicosIntegrantes = new Musico[nroIntegrantes+1];
+		this.musicosIntegrantes = new Musico[nroIntegrantes + 1];
 	}
 
 	public Integer getId() {
@@ -51,30 +51,32 @@ public class Banda {
 	public Boolean agregarMusico(Musico musico) {
 		Boolean seAgrego = false;
 		for (int i = 0; i < musicosIntegrantes.length; i++) {
-			if (musicosIntegrantes[i]==null) {
-				musicosIntegrantes[i]=musico;
-				seAgrego=true;
+			if (musicosIntegrantes[i] == null) {
+				musicosIntegrantes[i] = musico;
+				seAgrego = true;
 				break;
 			}
 		}
 		return seAgrego;
 
 	}
-	
-	public Boolean quitarMusico (Integer idMusico) {
+
+	public Boolean quitarMusico(Integer idMusico) {
 		Boolean seQuito = false;
 		for (int i = 0; i < musicosIntegrantes.length; i++) {
-			if(musicosIntegrantes[i] != null && musicosIntegrantes[i].getId().equals(idMusico)) {
+			if (musicosIntegrantes[i] != null && musicosIntegrantes[i].getId().equals(idMusico)) {
 				musicosIntegrantes[i] = null;
 				seQuito = true;
 				break;
 			}
-		} return seQuito;
-		
+		}
+		return seQuito;
+
 	}
 
-	
-	  public void setGenero(Genero genero) { this.genero = genero; }
+	public void setGenero(Genero genero) {
+		this.genero = genero;
+	}
 
 	@Override
 	public String toString() {
@@ -82,5 +84,4 @@ public class Banda {
 				+ Arrays.toString(musicosIntegrantes) + "]";
 	}
 
-	  
 }
