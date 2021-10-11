@@ -128,33 +128,7 @@ public class test {
 		assertTrue(productora.quitarMusicoDeUnaBanda(1, 1));
 	}
 	
-	//Test Musicos
-	@Test
-	public void verSiSeCreaUnMusico() {
-
-		Musico musico = new Cantante(1, "carlos", "garcia", "charly garcia", true, true, true);
-
-		assertEquals(musico, musico);
-
-	}
-
-	@Test
-	public void verSiSeCreaUnaBanda() {
-		Banda banda = new Banda(1, 1, Genero.ROCK);
-
-		assertEquals(banda, banda);
-	}
-
-	
-	@Test
-	public void queSeAgregueMusicoEnLaProductora() {
-		Productora productora = new Productora("Sony");
-		Musico musico = new Baterista(2, "pablo", "maitini", "shushu", false, false, true, 5);
-		
-		assertTrue(productora.agregarMusico(musico));
-	}
-	
-	//Test De Banda
+	//Tests De Banda
 	@Test 
 	public void quitarMusicoEnBanda() {
 		Banda banda = new Banda(1, 1, Genero.ROCK);
